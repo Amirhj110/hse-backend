@@ -9,12 +9,14 @@ from rest_framework_simplejwt.views import (
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("api/token/", TokenObtainPairView.as_view(), name="token_obtain_pair"),
+    path("api/token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
 
-    path("api/v1/auth/login/", TokenObtainPairView.as_view(), name="token_obtain_pair"),
-    path("api/v1/auth/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
+    # path("api/v1/auth/login/", TokenObtainPairView.as_view(), name="token_obtain_pair"),
+    # path("api/v1/auth/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
 
-    path("api/v1/users/", include("apps.users.urls")),
-    path("api/v1/", include("apps.incidents.urls")),
+    # path("api/v1/users/", include("apps.users.urls")),
+    # path("api/v1/", include("apps.incidents.urls")),
 ]
 
 if settings.DEBUG:
