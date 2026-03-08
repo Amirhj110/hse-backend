@@ -27,7 +27,7 @@ SECRET_KEY = config("SECRET_KEY", default="dev-temporary-secret-key")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["hse-backend-production-aa97.up.railway.app"]
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
