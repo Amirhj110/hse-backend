@@ -14,9 +14,13 @@ from pathlib import Path
 from datetime import timedelta
 from decouple import config
 
+
+import sys
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+CSRF_TRUSTED_ORIGINS = ['https://hse-backend-production-aa97.up.railway.app']
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
@@ -126,7 +130,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# Change this temporarily
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStorage'
 
 #REST Framework
 REST_FRAMEWORK = {
@@ -166,3 +171,6 @@ INSTALLED_APPS += ["corsheaders"]
 MIDDLEWARE = ["corsheaders.middleware.CorsMiddleware"] + MIDDLEWARE
 
 CORS_ALLOW_ALL_ORIGINS = True  # for development only
+
+
+sys.path.insert(0, str(BASE_DIR/ 'apps'))
